@@ -3,7 +3,7 @@
  * main - main function for own shell
  *
  * Return: 0 on success.
- */
+ */i
 
 int main(void)
 {
@@ -21,13 +21,11 @@ int main(void)
 			write(STDOUT_FILENO, "#myprompt$ ", 11);
 		}
 		command = get_command();
-		if (command[0] == '\n')
-
 		j = 0;
 		flag = 0;
 		while (command[j])
 		{
-			if (command[j] != 10 && command[j] != 32)
+			if (command[j] != 10 && command[j] != 32)	/* if command is space or \n actives flag */
 			{
 				flag = 1;
 				break;
