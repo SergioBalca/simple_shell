@@ -10,8 +10,8 @@ int main(void)
 char *command = NULL;
 char **command_arg = NULL;
 int mode = 0;
-int i = 0;
-
+int j;
+int flag;
 while (1)
 {
 	mode = isatty(STDIN_FILENO);
@@ -20,15 +20,30 @@ while (1)
 		write(STDOUT_FILENO, "#myprompt$ ", 11);
 	}
 	command = get_command();
+	j = 0;
+	flag = 0;
+	while (command[j])
+	{
+		if(command[j] != 10 && command[j] != 32)
+		{
+			flag = 1;
+			break;
+		}
+		j++;
+	}
+	if (flag == 0)
+	{
+		free(command);
+		continue;
+	}
 	command_arg = string_separator(command);
 	execute(command_arg);
 	free(command);
+	command = NULL;
+	/**freedp(command_arg);
+	*command_arg = NULL;
+	*/
 }
-while (command_arg[i])
-{
-	free(command_arg[i]);
-	i++;
-}
-free(command_arg);
+
 return (0);
 }
