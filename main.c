@@ -40,10 +40,8 @@ while (1)
 	execute(command_arg);
 	free(command);
 	command = NULL;
-	/**freedp(command_arg);
-	*command_arg = NULL;
-	*/
+	free(command_arg);
+	command_arg = NULL;
 }
-
 return (0);
 }

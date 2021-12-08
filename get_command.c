@@ -16,6 +16,7 @@ char *get_command(void)
 		{
 			if ((isatty(STDIN_FILENO)) == 1)
 			{
+				printf("salida 1\n");
 				write(STDOUT_FILENO, "\n", 1);
 				size = 0;
 				free(line);
@@ -23,6 +24,7 @@ char *get_command(void)
 			}
 			else
 			{
+				printf("salida 2\n");
 				size = 0;
 				free(line);
 				exit(EXIT_SUCCESS);

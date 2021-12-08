@@ -6,14 +6,18 @@
  */
 void **freedp(char **command)
 {
-	int i = 0;
+	int i;
+	if (command)
+	{
+	i = 0;
 	while (command[i])
 	{
 		free(command[i]);
 		i++;
 	}
 	free(command);
-	return NULL;
+	}
+	return (NULL);
 }
 int execute(char **command_arg)
 {
@@ -30,8 +34,10 @@ int execute(char **command_arg)
 			{
 				if (!command_arg[0])
 				{
-					freedp(command_arg);
+					/**freedp(command_arg);
 					command_arg = NULL;
+					*/
+					free(command_arg[0]);
 					exit(EXIT_FAILURE);
 				}
 				perror("./shell");
