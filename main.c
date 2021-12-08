@@ -3,7 +3,7 @@
  * main - main function for own shell
  *
  * Return: 0 on success.
- */i
+ */
 
 int main(void)
 {
@@ -25,7 +25,7 @@ int main(void)
 		flag = 0;
 		while (command[j])
 		{
-			if (command[j] != 10 && command[j] != 32)	/* if command is space or \n actives flag */
+			if (command[j] != 10 && command[j] != 32)
 			{
 				flag = 1;
 				break;
