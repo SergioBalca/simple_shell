@@ -14,10 +14,19 @@ char *get_command(void)
 	{
 		if (read == EOF)
 		{
-			write(STDOUT_FILENO, "\n", 1);
-			size = 0;
-			free(line);
-			exit(EXIT_SUCCESS);
+			if ((isatty(STDIN_FILENO) == 1))
+			{
+				write(STDOUT_FILENO, "\n", 1);
+				size = 0;
+				free(line);
+				exit(EXIT_SUCCESS);
+			}
+			else
+			{
+				size = 0;
+				free(line);
+				exit(EXIT_SUCCESS);
+			}
 		}
 		else
 		{

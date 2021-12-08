@@ -20,6 +20,11 @@ while (1)
 		write(STDOUT_FILENO, "#myprompt$ ", 11);
 	}
 	command = get_command();
+	if (command[0] == '\n')
+	{
+		free(command);
+		continue;
+	}
 	command_arg = string_separator(command);
 	execute(command_arg);
 	free(command);
