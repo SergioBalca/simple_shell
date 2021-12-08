@@ -6,6 +6,7 @@
 extern char **environ;
 
 /* Libraries */
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
@@ -17,9 +18,10 @@ extern char **environ;
 #include <string.h>
 
 /* prototypes */
+
 char *get_command(void);
 int main(void);
 char **string_separator(char *command);
-int execute(char **command_arg);
+int execute(char **command_arg, char *command);
 
 #endif

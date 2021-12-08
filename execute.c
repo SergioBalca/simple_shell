@@ -2,9 +2,11 @@
 /**
  * execute - execute command
  * @command_arg: command to execute
+ * @command: string passed as argument to our shell
  * Return: 0 on success
  */
-int execute(char **command_arg)
+
+int execute(char **command_arg, char *command)
 {
 	int exec = 0;
 	pid_t my_pid = 0;
@@ -17,10 +19,8 @@ int execute(char **command_arg)
 			exec = execve(command_arg[0], command_arg, environ);
 			if (exec == -1)
 			{
-				if (!command_arg[0])
-				{
-					exit(EXIT_FAILURE);
-				}
+				free(command);
+				free(command_arg);
 				perror("./shell");
 				exit(EXIT_FAILURE);
 			}

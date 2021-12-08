@@ -36,5 +36,7 @@ char *get_command(void)
 			exit(EXIT_FAILURE);
 		}
 	}
+	read = 0;
+	size = 0;
 	return (line);
 }

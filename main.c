@@ -7,33 +7,44 @@
 
 int main(void)
 {
-char *command = NULL;
-char **command_arg = NULL;
-int mode = 0;
-/*int i = 0;*/
+	char *command = NULL;
+	char **command_arg = NULL;
+	int mode = 0;
+	int j;
+	int flag;
 
-while (1)
-{
-	mode = isatty(STDIN_FILENO);
-	if (mode == 1)
+	while (1)
 	{
-		write(STDOUT_FILENO, "#myprompt$ ", 11);
-	}
-	command = get_command();
-	if (command[0] == '\n')
-	{
+		mode = isatty(STDIN_FILENO);
+		if (mode == 1)
+		{
+			write(STDOUT_FILENO, "#myprompt$ ", 11);
+		}
+		command = get_command();
+		if (command[0] == '\n')
+
+		j = 0;
+		flag = 0;
+		while (command[j])
+		{
+			if (command[j] != 10 && command[j] != 32)
+			{
+				flag = 1;
+				break;
+			}
+			j++;
+		}
+		if (flag == 0)
+		{
+			free(command);
+			continue;
+		}
+		command_arg = string_separator(command);
+		execute(command_arg, command);
 		free(command);
-		continue;
+		command = NULL;
+		free(command_arg);
+		command_arg = NULL;
 	}
-	command_arg = string_separator(command);
-	execute(command_arg);
-	free(command);
-	free(command_arg);
-}
-/*while (command_arg[i])
-{
-	free(command_arg[i]);
-	i++;
-}*/
-return (0);
+	return (0);
 }
