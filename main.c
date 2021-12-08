@@ -10,7 +10,7 @@ int main(void)
 char *command = NULL;
 char **command_arg = NULL;
 int mode = 0;
-int i = 0;
+/*int i = 0;*/
 
 while (1)
 {
@@ -28,12 +28,12 @@ while (1)
 	command_arg = string_separator(command);
 	execute(command_arg);
 	free(command);
+	free(command_arg);
 }
-while (command_arg[i])
+/*while (command_arg[i])
 {
 	free(command_arg[i]);
 	i++;
-}
-free(command_arg);
+}*/
 return (0);
 }
