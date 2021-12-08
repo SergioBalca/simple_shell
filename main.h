@@ -16,6 +16,7 @@ extern char **environ;
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string.h>
+#include <signal.h>
 
 /* prototypes */
 
@@ -23,5 +24,6 @@ char *get_command(void);
 int main(void);
 char **string_separator(char *command);
 int execute(char **command_arg, char *command);
+void ctr_c(int __attribute__((unused))sig);
 
 #endif

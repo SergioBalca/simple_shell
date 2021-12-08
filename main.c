@@ -13,6 +13,7 @@ int main(void)
 	int j;
 	int flag;
 
+	signal(SIGINT, ctr_c);
 	while (1)
 	{
 		mode = isatty(STDIN_FILENO);
@@ -45,4 +46,16 @@ int main(void)
 		command_arg = NULL;
 	}
 	return (0);
+}
+
+/**
+ * ctr_c- handles the ctr + c signal
+ * without exiting the shell
+ * @sig: ctr + c signal
+ * Return: 0 on success.
+ */
+
+void ctr_c(int __attribute__((unused))sig)
+{
+	write(STDOUT_FILENO, "\n#myprompt$ ", 12);
 }
