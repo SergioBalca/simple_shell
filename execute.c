@@ -6,7 +6,6 @@
  */
 int execute(char **command_arg)
 {
-	char *env[] = {0};
 	int exec = 0;
 	pid_t my_pid = 0;
 	int status = 0;
@@ -15,7 +14,7 @@ int execute(char **command_arg)
 	{
 		if (my_pid == 0) /*child process*/
 		{
-			exec = execve(command_arg[0], command_arg, env);
+			exec = execve(command_arg[0], command_arg, environ);
 			if (exec == -1)
 			{
 				if (!command_arg[0])

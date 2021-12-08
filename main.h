@@ -3,6 +3,8 @@
 
 #define GLOBAL_BUFSIZE 64
 
+extern char **environ;
+
 /* Libraries */
 #include <stdio.h>
 #include <stdarg.h>
@@ -14,6 +16,7 @@
 #include <unistd.h>
 #include <string.h>
 
+/* prototypes */
 char *get_command(void);
 int main(void);
 char **string_separator(char *command);
