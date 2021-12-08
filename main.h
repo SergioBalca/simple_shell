@@ -17,7 +17,6 @@ extern char **environ;
 char *get_command(void);
 int main(void);
 char **string_separator(char *command);
-int execute(char **command_arg);
-void **freedp(char **command);
+int execute(char **command_arg, char *command);
 
 #endif

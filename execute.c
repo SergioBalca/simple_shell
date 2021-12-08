@@ -4,22 +4,8 @@
  * @command_arg: command to execute
  * Return: 0 on success
  */
-void **freedp(char **command)
-{
-	int i;
-	if (command)
-	{
-	i = 0;
-	while (command[i])
-	{
-		free(command[i]);
-		i++;
-	}
-	free(command);
-	}
-	return (NULL);
-}
-int execute(char **command_arg)
+
+int execute(char **command_arg, char *command)
 {
 	int exec = 0;
 	pid_t my_pid = 0;
@@ -32,14 +18,17 @@ int execute(char **command_arg)
 			exec = execve(command_arg[0], command_arg, environ);
 			if (exec == -1)
 			{
-				if (!command_arg[0])
+				/**if (!command_arg[0])
 				{
-					/**freedp(command_arg);
+					freedp(command_arg);
 					command_arg = NULL;
-					*/
+					
 					free(command_arg[0]);
 					exit(EXIT_FAILURE);
 				}
+				*/
+				free(command);
+				free(command_arg);
 				perror("./shell");
 				exit(EXIT_FAILURE);
 			}

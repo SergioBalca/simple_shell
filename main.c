@@ -37,7 +37,7 @@ while (1)
 		continue;
 	}
 	command_arg = string_separator(command);
-	execute(command_arg);
+	execute(command_arg, command);
 	free(command);
 	command = NULL;
 	free(command_arg);
