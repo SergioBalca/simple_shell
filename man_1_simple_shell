@@ -1,0 +1,63 @@
+.TH man 1 "08 December 2021" "1.0"
+.SH NAME
+Simple Shell
+
+.SH SYNOPSIS
+Simple Linux Shell program. This project is about coding a simple shell with simple usages in C.
+the shell is a program that takes commands from the keyboard and passes them to the machine to execute them through the kernel to perform. We can interact with this program through the terminal.
+
+The library "main.h" is needed to use this function, use: #include "main.h"
+
+.SH DESCRIPTION
+Its a command line interpreter that reads lines from either a file or the terminal, interprets them, and generally executes commands.It has direct access to the Kernel.
+
+.SH USAGE
+All the files are to be compiled on Ubuntu 20.04 LTS.
+You must download all the files contained in the project repository in order for this program to work.
+This program must be compiled with gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -g *.c -o
+
+.SH EXECUTION
+This Shell has 2 modes of execution: interactive and non-interactive.
+
+This depends on what the user sents to the program.
+
+The interactive mode allows us to input and execute commands for an infinite amount of times as long as the shell is running and its not "exit" or "EOF"(Ctrl + d).
+
+
+.SH RETURN VALUES
+If successful it will return 0 and execute the command. If it doesnt find a command, will return an error, and print a message with: 'No such file or directory'.
+
+.SH FORMAT COMMANDS
+
+This shell have been tested with the following commands that are proved to work:
+/bin/ls, ls, pwd, ls -la, env, exit, (ctrl + d).
+
+.SH EXAMPLES
+
+.SH Interactive mode
+
+Interactive mode
+
+fyga10@DESKTOP-N00MDOS:~/holberton/simple_shell$ ./hsh
+#myprompt$ /bin/pwd
+/home/fyga10/holberton/simple_shell
+
+#myprompt$ /bin/ls
+AUTHORS  README.md  execute.c  get_command.c  hsh  main.c  main.h  man_1_simple_shell  string_separator.c
+
+.SH Non-interactive mode
+
+fyga10@DESKTOP-N00MDOS:~/holberton/simple_shell$ echo "/bin/pwd" | ./hsh
+/home/fyga10/holberton/simple_shell
+
+echo "/bin/ls" | ./hsh
+AUTHORS  README.md  execute.c  get_command.c  hsh  main.c  main.h  man_1_simple_shell  string_separator.c
+
+.SH BUGS
+No bugs known til the date.
+
+.SH DATE
+Written in December 8th, 2021.
+
+.SH AUTHORS
+Written by Sergio Balcázar <3896@holbertonshool.com> and Frank Giraldo <3902@holbertonshool.com>
