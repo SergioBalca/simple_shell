@@ -29,5 +29,7 @@ int execute(char **command_arg, char *command);
 void ctr_c(int __attribute__((unused))sig);
 int _len(char *str);
 int _env(char **args);
+int _strcmp(char *s1, char *s2);
+int non_builtin(char **command_arg, char *command);
 
 #endif
