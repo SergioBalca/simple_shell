@@ -7,7 +7,7 @@
 5. [Examples](#examples)
 6. [Authors](#Authors)
 <h2>Flowchart</h2>
-<img>![Interactive_shell drawio](https://user-images.githubusercontent.com/91082676/145334961-4997d90b-e1e0-4a83-a800-a60925a8a6c5.png)</img>
+![Screenshot](Interactive_shell.drawio.png)
 <h2>Description</h2>
 <p>Our simple shell tries to emulate the behavior of a standart Unix shell, when a user enters commands with its arguments</p>
 <p>So, in general, a Shell is a user interface to use the services of a computer and can be used in an interactive mode and non interactive mode<p>
