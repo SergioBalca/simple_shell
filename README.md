@@ -1,10 +1,13 @@
 #OUR OWN SIMPLE SHELL
 ## Table of Contents
-1. [Description](#Description)
-2. [Installation](#Installation)
-3. [Compilation](#installation)
-4. [Examples](#examples)
-5. [Authors](#Authors)
+1. [Flowchart](#Flowchart)
+2. [Description](#Description)
+3. [Installation](#Installation)
+4. [Compilation](#installation)
+5. [Examples](#examples)
+6. [Authors](#Authors)
+<h2>Flowchart</h2>
+![Interactive_shell drawio](https://user-images.githubusercontent.com/91082676/145334961-4997d90b-e1e0-4a83-a800-a60925a8a6c5.png)
 <h2>Description</h2>
 <p>Our simple shell tries to emulate the behavior of a standart Unix shell, when a user enters commands with its arguments</p>
 <p>So, in general, a Shell is a user interface to use the services of a computer and can be used in an interactive mode and non interactive mode<p>
