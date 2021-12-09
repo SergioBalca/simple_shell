@@ -2,6 +2,8 @@
 #define SHELL_H
 
 #define GLOBAL_BUFSIZE 64
+#define UNUSED(x) (void)(x)
+
 
 extern char **environ;
 
@@ -25,5 +27,7 @@ int main(void);
 char **string_separator(char *command);
 int execute(char **command_arg, char *command);
 void ctr_c(int __attribute__((unused))sig);
+int _len(char *str);
+int _env(char **args);
 
 #endif
