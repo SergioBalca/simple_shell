@@ -9,17 +9,18 @@
 
 int _env(char **args)
 {
-	
+
 	int i = 0;
-	UNUSED (args);
-	
+
+	UNUSED(args);
+
 	while (environ[i])
 	{
 		write(STDOUT_FILENO, environ[i], _len(environ[i]));
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
-	
+
 	return (1);
 }
 
