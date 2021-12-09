@@ -7,6 +7,7 @@
 5. [Examples](#examples)
 6. [Authors](#Authors)
 <h2>Flowchart</h2>
+
 ![Preview](https://github.com/fyga10/simple_shell/blob/master/Interactive_shell.drawio.png)
 <h2>Description</h2>
 <p>Our simple shell tries to emulate the behavior of a standart Unix shell, when a user enters commands with its arguments</p>
@@ -37,5 +38,6 @@
     AUTHORS  README.md  execute.c  get_command.c  hsh  main.c  main.h  man_1_simple_shell  string_separator.c
 
 ***
+![Preview](https://github.com/fyga10/simple_shell/blob/master/download.png)
 <h5>Authors</h5>
 <strong><em>created by Sergio Balcázar and Frank Giraldo</em></strong>
