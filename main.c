@@ -11,7 +11,8 @@ int main(void)
 	char **command_arg = NULL;
 	int mode = 0;
 	int j;
-	int flag;
+	int flag = 0;
+	char *str = "env";
 
 	signal(SIGINT, ctr_c);
 	while (1)
@@ -22,16 +23,13 @@ int main(void)
 			write(STDOUT_FILENO, "#myprompt$ ", 11);
 		}
 		command = get_command();
-		j = 0;
-		flag = 0;
-		while (command[j])
+		for (j = 0; command[j]; j++)
 		{
 			if (command[j] != 10 && command[j] != 32)
 			{
 				flag = 1;
 				break;
 			}
-			j++;
 		}
 		if (flag == 0)
 		{
@@ -39,11 +37,14 @@ int main(void)
 			continue;
 		}
 		command_arg = string_separator(command);
-		execute(command_arg, command);
-		free(command);
-		command = NULL;
-		free(command_arg);
-		command_arg = NULL;
+		if (_strcmp(command_arg[0], str) == 0)
+		{
+			_env(command_arg);	/* bilt-in command */
+		}
+		else
+		{
+			non_builtin(command_arg, command);
+		}
 	}
 	return (0);
 }
@@ -58,4 +59,31 @@ int main(void)
 void ctr_c(int __attribute__((unused))sig)
 {
 	write(STDOUT_FILENO, "\n#myprompt$ ", 12);
+}
+
+/**
+ * _strcmp- compares two strings
+ * @s1: first string
+ * @s2: second string
+ * Return: the difference between the two strings
+ * using ASCCI values and pointers arithmetic
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0;
+	int result;
+
+	while (s1[i] != '\0')
+	{
+		if (s1[i] - s2[i] == 0)
+		{
+			i++;
+		}
+		else
+		break;
+	}
+
+	result = s1[i] - s2[i];
+	return (result);
 }
