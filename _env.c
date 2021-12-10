@@ -3,16 +3,15 @@
 /**
   * _env - prints the current environment.
   *
-  * @args: arguments unused for this function.
+  * @command: the command passed to the shell
+  * @command_arg: the arguments to execute the argument
   * Return: Always 1
   */
 
-int _env(char **args)
+int _env(char *command, char **command_arg)
 {
 
 	int i = 0;
-
-	UNUSED(args);
 
 	while (environ[i])
 	{
@@ -20,7 +19,10 @@ int _env(char **args)
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
-
+	free(command);
+	command = NULL;
+	free(command_arg);
+	command_arg = NULL;
 	return (1);
 }
 
