@@ -39,7 +39,7 @@ int main(void)
 		command_arg = string_separator(command);
 		if (_strcmp(command_arg[0], str) == 0)
 		{
-			_env(command_arg);	/* bilt-in command */
+			_env(command, command_arg);	/* bilt-in command */
 		}
 		else
 		{
